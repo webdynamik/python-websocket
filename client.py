@@ -22,10 +22,10 @@ try:
     def on_message(data):
         print('received: ', data)
 
-    @sio.on('get')
-    def get(data):
-        #fn({status: 1, value: 1, index: data.index})
-        print('get: ', data)
+    @sio.on('StepperForward')
+    def StepperForward(data):
+        print('forward: ', data)
+        PiMotorStepperForward();
 
     @sio.on('SmarsSet')
     def SmarsSet(data):
