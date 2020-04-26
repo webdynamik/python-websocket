@@ -1,4 +1,4 @@
-import boards.PiMotor
+import boards.PiMotor as PiMotor
 import time
 import RPi.GPIO as GPIO
 
