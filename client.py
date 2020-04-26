@@ -1,6 +1,6 @@
 import socketio
 import RPi.GPIO as GPIO
-from boards.PiMotorStepper import forward as PiMotorStepperForward
+from commands.PiMotorStepper import forward as PiMotorStepperForward
 
 try:
     sio = socketio.Client()
