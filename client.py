@@ -26,7 +26,7 @@ try:
     @sio.on('StepperForward')
     def StepperForward(data):
         print('forward: ', data)
-        PiMotorStepperForward(data.delay,data.rotations);
+        PiMotorStepperForward(data['delay'],data['rotations']);
 
     @sio.on('SmarsSet')
     def SmarsSet(data):
