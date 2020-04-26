@@ -1,6 +1,7 @@
 import socketio
 import RPi.GPIO as GPIO
 from commands.PiMotorStepper import forward as PiMotorStepperForward
+import sys, getopt
 
 try:
     sio = socketio.Client()
@@ -25,7 +26,7 @@ try:
     @sio.on('StepperForward')
     def StepperForward(data):
         print('forward: ', data)
-        PiMotorStepperForward();
+        PiMotorStepperForward(data.delay,data.rotations);
 
     @sio.on('SmarsSet')
     def SmarsSet(data):
