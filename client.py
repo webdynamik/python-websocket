@@ -1,6 +1,6 @@
 import socketio
 import RPi.GPIO as GPIO
-from boards.PiMotorStepper import forward as PiMotorStepper.Forward
+from boards.PiMotorStepper import forward as PiMotorStepperForward
 
 try:
     sio = socketio.Client()
@@ -30,7 +30,7 @@ try:
     @sio.on('SmarsSet')
     def SmarsSet(data):
         print('set: ', data)
-        exec('PiMotorStepper.' + data+'()');
+        exec( data+'()');
         
     @sio.on('disconnect')
     def on_disconnect():
