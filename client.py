@@ -8,7 +8,7 @@ try:
     @sio.on('connect')
     def on_connect():
         print('connection established')
-        sio.emit('hallo', 'PiMotorStepper')
+        sio.emit('hallo', {name: 'PiMotorStepper', fingerprint: 'PiMotorStepper'})
         sio.emit('add-devices', [{
                                     "name": "SMARS",
                                     "type": "smars",
