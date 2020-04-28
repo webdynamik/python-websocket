@@ -36,7 +36,14 @@ try:
     @sio.on('motor')
     def Motor(data):
         print('set Motor to: ', data)
-        exec( 'PiMotorStepper' + data['motor'] + data['direction'] +'('+ data['delay'] + ' , ' + data['rotations'] + ')' );
+        if data['motor'] == '2' and data['directioin'] == 'forward' :
+            PiMotorStepper2Forward(data['delay'],data['rotations']);
+        elif data['motor'] == '2' and data['directioin'] == 'backward' :
+            PiMotorStepper2Backward(data['delay'],data['rotations']);
+        elif data['motor'] == '1' and data['directioin'] == 'backward' :
+            PiMotorStepperBackward(data['delay'],data['rotations']);
+        else: 
+            PiMotorStepperForward(data['delay'],data['rotations']);
         
     @sio.on('disconnect')
     def on_disconnect():
