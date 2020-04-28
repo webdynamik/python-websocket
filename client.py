@@ -36,11 +36,11 @@ try:
     @sio.on('motor')
     def Motor(data):
         print('set Motor to: ', data)
-        if data['motor'] == '2' and data['directioin'] == 'forward' :
+        if data['motor'] == '2' and data['direction'] == 'forward' :
             PiMotorStepper2Forward(data['delay'],data['rotations']);
-        elif data['motor'] == '2' and data['directioin'] == 'backward' :
+        elif data['motor'] == '2' and data['direction'] == 'backward' :
             PiMotorStepper2Backward(data['delay'],data['rotations']);
-        elif data['motor'] == '1' and data['directioin'] == 'backward' :
+        elif data['motor'] == '1' and data['direction'] == 'backward' :
             PiMotorStepperBackward(data['delay'],data['rotations']);
         else: 
             PiMotorStepperForward(data['delay'],data['rotations']);
