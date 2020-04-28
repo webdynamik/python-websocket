@@ -1,6 +1,6 @@
 import socketio
 import RPi.GPIO as GPIO
-from commands.PiMotorStepper import forward as PiMotorStepperForward, backward as PiMotorStepperBackward
+from commands.PiMotorStepper import m1Forward as PiMotorStepperForward, m1Backward as PiMotorStepperBackward, m2Forward as PiMotorStepper2Forward, m2Backward as PiMotorStepper2Backward
 import sys, getopt
 
 try:
@@ -33,10 +33,10 @@ try:
         print('backward: ', data)
         PiMotorStepperBackward(data['delay'],data['rotations']);
 
-    @sio.on('SmarsSet')
-    def SmarsSet(data):
-        print('set: ', data)
-        exec( data+'()');
+    @sio.on('motor')
+    def Motor(data):
+        print('set Motor to: ', data)
+        exec( 'PiMotorStepper' + data['motor'] + data['direction'] +'('+ data['delay'] + ' , ' + data['rotations'] + ')' );
         
     @sio.on('disconnect')
     def on_disconnect():
