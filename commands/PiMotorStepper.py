@@ -1,6 +1,5 @@
 import boards.PiMotor as PiMotor
 import time
-import RPi.GPIO as GPIO
 
 m1 = PiMotor.Stepper("STEPPER1")
 m2 = PiMotor.Stepper("STEPPER2")
