@@ -4,26 +4,14 @@ from commands.PiMotorStepper import m1Forward as PiMotorStepperForward, m1Backwa
 try:
     sio = socketio.Client()
 
-    @sio.event
-    def connect(socket):
-        print("I'm connected!")
-        socket.emit('setOnline', [{
-                                    "type": "elbow",
-                                    "motor": 1
-                                  }, {
-                                    "type": "base",
-                                    "motor": 2
-                                  }]);
-
-
     @sio.on('connect')
     def on_connect():
         print('connection established')
         sio.emit('setOnline', [{
-                                    "type": "elbow1",
+                                    "type": "elbow",
                                     "motor": 1
                                   }, {
-                                    "type": "base2",
+                                    "type": "base",
                                     "motor": 2
                                   }]);
 
