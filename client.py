@@ -5,9 +5,9 @@ try:
     sio = socketio.Client()
 
     @sio.on('connect')
-    def on_connect():
+    def on_connect(socket):
         print('connection established')
-        sio.emit('setOnline', [{
+        socket.emit('setOnline', [{
                                     "type": "elbow",
                                     "motor": 1
                                   }, {
