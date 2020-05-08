@@ -1,3 +1,4 @@
+import config
 import socketio
 from commands.PiMotorStepper import m1Forward as PiMotorStepperForward, m1Backward as PiMotorStepperBackward, m2Forward as PiMotorStepper2Forward, m2Backward as PiMotorStepper2Backward
 
@@ -7,27 +8,7 @@ try:
     @sio.on('connect')
     def on_connect():
         print('connection established')
-        sio.emit('setOnline', [{
-                                    "type": "elbow",
-                                    "motor": 1
-                                  }, {
-                                    "type": "base",
-                                    "motor": 2
-                                  }]);
-
-    @sio.on('display')
-    def on_message(data):
-        print('received: ', data)
-
-    @sio.on('StepperForward')
-    def StepperForward(data):
-        print('forward: ', data)
-        PiMotorStepperForward(data['delay'],data['rotations']);
-
-    @sio.on('StepperBackward')
-    def StepperBackward(data):
-        print('backward: ', data)
-        PiMotorStepperBackward(data['delay'],data['rotations']);
+        sio.emit('setOnline', config);
 
     @sio.on('motor')
     def Motor(data):
