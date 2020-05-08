@@ -8,7 +8,8 @@ try:
     @sio.on('connect')
     def on_connect():
         print('connection established')
-        sio.emit('setOnline', config);
+        print(motors)
+        sio.emit('setOnline', motors)
 
     @sio.on('motor')
     def Motor(data):
