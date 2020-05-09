@@ -1,6 +1,6 @@
 import config
 import socketio
-from commands.PiMotorStepper import m1Forward as PiMotorStepperForward, m1Backward as PiMotorStepperBackward, m2Forward as PiMotorStepper2Forward, m2Backward as PiMotorStepper2Backward
+from commands.PiMotorStepper import m1Stop as PiMotorStepperStop, m2Stop as PiMotorStepper2Stop, m1Forward as PiMotorStepperForward, m1Backward as PiMotorStepperBackward, m2Forward as PiMotorStepper2Forward, m2Backward as PiMotorStepper2Backward
 
 try:
     sio = socketio.Client()
@@ -11,9 +11,13 @@ try:
         print(config.motors)
         sio.emit('setOnline', config.motors)
 
-    @sio.on('reconnect')
-    def on_reconnect():
-        print('reconnect established')
+    @sio.on('stop')
+    def stop(data):
+        print('-> stop', data)
+        if data['motor'] == '1' :
+            PiMotorStepperStop();
+        else:
+            PiMotorStepper2Stop();
 
     @sio.on('motor')
     def Motor(data):
