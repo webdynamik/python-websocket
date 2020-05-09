@@ -11,6 +11,10 @@ try:
         print(config.motors)
         sio.emit('setOnline', config.motors)
 
+    @sio.on('reconnect')
+    def on_reconnect():
+        print('reconnect established')
+
     @sio.on('motor')
     def Motor(data):
         print('set Motor to: ', data)
