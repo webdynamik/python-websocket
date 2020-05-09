@@ -209,7 +209,7 @@ class Stepper:
 
     def stop(self):
         ''' Stops power to the motor,
-     '''
+        '''
         print("Stop Stepper Motor")
         GPIO.output(self.config['c1'],GPIO.LOW)
         GPIO.output(self.config['c2'],GPIO.LOW)
