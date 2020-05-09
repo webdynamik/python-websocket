@@ -11,6 +11,12 @@ try:
         print(config.motors)
         sio.emit('setOnline', config.motors)
 
+    @sio.on('sayHello')
+    def on_say_hello():
+        print('on_say_hello')
+        print(config.motors)
+        sio.emit('setOnline', config.motors)
+
     @sio.on('stop')
     def stop(data):
         print('-> stop', data)
