@@ -9,7 +9,7 @@ def penOff():
   p.ChangeDutyCycle(8)
   p.stop()
   time.sleep(0.5)
-  GPIO.clearup()
+  GPIO.cleanup()
 
 def penOn():
   GPIO.setup(servoPIN, GPIO.OUT)
@@ -18,4 +18,4 @@ def penOn():
   p.ChangeDutyCycle(10)
   p.stop()
   time.sleep(0.5)
-  GPIO.clearup()
+  GPIO.cleanup()
