@@ -1,4 +1,5 @@
 motors = dict(
-    motor1 = 'base',
-    motor2 = 'elbow',
+    motor1 = 'left',
+    motor2 = 'right',
+    motor3 = 'pen',
 )
