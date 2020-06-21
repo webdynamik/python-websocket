@@ -22,9 +22,9 @@ try:
     def pen(data):
         print('-> pen', data)
         if data == 'on' :
-            os.system("commands/penOn.py");
+            os.system("python commands/penOn.py");
         else:
-            os.system("commands/penOff.py");
+            os.system("python commands/penOff.py");
 
     @sio.on('stop')
     def stop(data):
