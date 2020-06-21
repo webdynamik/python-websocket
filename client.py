@@ -1,7 +1,6 @@
 import config
 import socketio
 from commands.PiMotorStepper import m1Stop as PiMotorStepperStop, m2Stop as PiMotorStepper2Stop, m1Forward as PiMotorStepperForward, m1Backward as PiMotorStepperBackward, m2Forward as PiMotorStepper2Forward, m2Backward as PiMotorStepper2Backward
-
 from commands.PiMiniMotor import penOn as MiniMotorPenOn, penOff as MiniMotorPenOff
 
 try:
