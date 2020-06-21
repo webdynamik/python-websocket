@@ -21,9 +21,9 @@ try:
     def pen(data):
         print('-> pen', data)
         if data == 'on' :
-            execfile("commands.PenOn.py")
+            exec(open('commands.PenOn.py').read())
         else:
-            execfile("commands.PenOff.py")
+            exec(open('commands.PenOff.py').read())
 
     @sio.on('stop')
     def stop(data):
