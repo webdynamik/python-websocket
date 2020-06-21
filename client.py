@@ -1,6 +1,7 @@
 import config
 import socketio
 from commands.PiMotorStepper import m1Stop as PiMotorStepperStop, m2Stop as PiMotorStepper2Stop, m1Forward as PiMotorStepperForward, m1Backward as PiMotorStepperBackward, m2Forward as PiMotorStepper2Forward, m2Backward as PiMotorStepper2Backward
+import os
 
 try:
     sio = socketio.Client()
@@ -21,9 +22,9 @@ try:
     def pen(data):
         print('-> pen', data)
         if data == 'on' :
-            exec(open('commands/penOn.py').read())
+            os.system("commands/penOn.py");
         else:
-            exec(open('commands/penOff.py').read())
+            os.system("commands/penOff.py");
 
     @sio.on('stop')
     def stop(data):
