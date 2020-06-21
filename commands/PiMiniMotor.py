@@ -1,8 +1,8 @@
 import RPi.GPIO as GPIO
 import time
 servoPIN = 21
-  GPIO.setmode(GPIO.BCM)
-  GPIO.setup(servoPIN, GPIO.OUT)
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(servoPIN, GPIO.OUT)
 
 def penOff():
   p = GPIO.PWM(servoPIN, 50)
