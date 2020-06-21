@@ -3,6 +3,7 @@ import time
 servoPIN = 21
 
 def penOff():
+  GPIO.setmode(GPIO.BCM)
   GPIO.setup(servoPIN, GPIO.OUT)
   p = GPIO.PWM(servoPIN, 50)
   p.start(10)
@@ -12,6 +13,7 @@ def penOff():
   GPIO.cleanup()
 
 def penOn():
+  GPIO.setmode(GPIO.BCM)
   GPIO.setup(servoPIN, GPIO.OUT)
   p = GPIO.PWM(servoPIN, 50)
   p.start(8)
