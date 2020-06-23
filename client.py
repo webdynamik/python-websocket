@@ -1,5 +1,6 @@
 import config
-import socketio from commands.Drawbot import stop as DrawbotStop, left as DrawbotLeft, right as DrawbotRight, top as DrawbotTop, down as DrawbotDown, leftTop as DrawbotLeftTop, rightTop as DrawbotRightTop, leftDown as DrawbotLeftDown, rightDown as DrawbotRightDown
+import socketio 
+from commands.Drawbot import stop as DrawbotStop, left as DrawbotLeft, right as DrawbotRight, top as DrawbotTop, down as DrawbotDown, leftTop as DrawbotLeftTop, rightTop as DrawbotRightTop, leftDown as DrawbotLeftDown, rightDown as DrawbotRightDown
 import os
 
 try:
