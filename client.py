@@ -1,6 +1,6 @@
+from commands.Drawbot import stop, left, right, top, down, leftTop, rightTop, leftDown, rightDown
 import config
 import socketio 
-from commands.Drawbot import stop as DrawbotStop, left as DrawbotLeft, right as DrawbotRight, top as DrawbotTop, down as DrawbotDown, leftTop as DrawbotLeftTop, rightTop as DrawbotRightTop, leftDown as DrawbotLeftDown, rightDown as DrawbotRightDown
 import os
 
 try:
@@ -26,28 +26,28 @@ try:
     @sio.on('stop')
     def stop(data):
         print('-> stop')
-        DrawbotStop();
+        stop();
 
     @sio.on('motor')
     def Motor(data):
         print('set Motor to: ', data)
 
         if data['direction'] == 'down' :
-            DrawbotDown(data['delay'],data['rotations']);
+            down(data['delay'],data['rotations']);
         elif data['direction'] == 'left' :
-            DrawbotLeft(data['delay'],data['rotations']);
+            left(data['delay'],data['rotations']);
         elif data['direction'] == 'leftDown' :
-            DrawbotLeftDown(data['delay'],data['rotations']);
+            leftDown(data['delay'],data['rotations']);
         elif data['direction'] == 'leftTop' :
-            DrawbotLeftTop(data['delay'],data['rotations']);
+            leftTop(data['delay'],data['rotations']);
         elif data['direction'] == 'right' :
-            DrawbotRight(data['delay'],data['rotations']);
+            right(data['delay'],data['rotations']);
         elif data['direction'] == 'rightDown' :
-            DrawbotRightDown(data['delay'],data['rotations']);
+            rightDown(data['delay'],data['rotations']);
         elif data['direction'] == 'rightTop' :
-            DrawbotRightTop(data['delay'],data['rotations']);
+            rightTop(data['delay'],data['rotations']);
         elif data['direction'] == 'top' :
-            DrawbotTop(data['delay'],data['rotations']);
+            top(data['delay'],data['rotations']);
 
         
     @sio.on('disconnect')
