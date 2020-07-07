@@ -7,7 +7,7 @@ GPIO2.setup(servoPIN, GPIO2.OUT)
 
 p = GPIO2.PWM(servoPIN, 50) # GPIO 17 als PWM mit 50Hz
 p.start(1) # Initialisierung
-p.ChangeDutyCycle(10)
+p.ChangeDutyCycle(20)
 time.sleep(0.5)
 p.stop();
 GPIO2.cleanup()
